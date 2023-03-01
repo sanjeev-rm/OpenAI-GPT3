@@ -25,7 +25,7 @@ struct RootView: View {
             ModulesView()
                 .tabItem {
                     Image(systemName: "rectangle.stack.fill")
-                    Text("Moules")
+                    Text("Modules")
                 }
             SettingsView()
                 .tabItem {

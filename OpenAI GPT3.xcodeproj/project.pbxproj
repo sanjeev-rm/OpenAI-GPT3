@@ -14,6 +14,7 @@
 		C7D03E6229AF989F00EC29AA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D03E6129AF989F00EC29AA /* SettingsView.swift */; };
 		C7D03E6529AF9B8B00EC29AA /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = C7D03E6429AF9B8B00EC29AA /* OpenAISwift */; };
 		C7D03E6729AF9BAF00EC29AA /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D03E6629AF9BAF00EC29AA /* AppModel.swift */; };
+		C7D03E6A29AFCA8100EC29AA /* NewChatView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D03E6929AFCA8100EC29AA /* NewChatView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		C7D03E5F29AF987200EC29AA /* ModulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulesView.swift; sourceTree = "<group>"; };
 		C7D03E6129AF989F00EC29AA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		C7D03E6629AF9BAF00EC29AA /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		C7D03E6929AFCA8100EC29AA /* NewChatView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChatView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 				C7D03E2029AD2E7C00EC29AA /* OpenAI_GPT3App.swift */,
 				C7D03E5F29AF987200EC29AA /* ModulesView.swift */,
 				C7D03E6129AF989F00EC29AA /* SettingsView.swift */,
+				C7D03E6829AFCA6300EC29AA /* Modules */,
 				C7D03E2429AD2E7E00EC29AA /* Assets.xcassets */,
 				C7D03E2629AD2E7E00EC29AA /* Preview Content */,
 				C7D03E6629AF9BAF00EC29AA /* AppModel.swift */,
@@ -73,6 +76,14 @@
 				C7D03E2729AD2E7E00EC29AA /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		C7D03E6829AFCA6300EC29AA /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				C7D03E6929AFCA8100EC29AA /* NewChatView.swift */,
+			);
+			path = Modules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +165,7 @@
 				C7D03E6229AF989F00EC29AA /* SettingsView.swift in Sources */,
 				C7D03E6029AF987200EC29AA /* ModulesView.swift in Sources */,
 				C7D03E2129AD2E7C00EC29AA /* OpenAI_GPT3App.swift in Sources */,
+				C7D03E6A29AFCA8100EC29AA /* NewChatView.swift in Sources */,
 				C7D03E6729AF9BAF00EC29AA /* AppModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -291,6 +303,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -320,6 +333,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
