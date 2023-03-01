@@ -18,7 +18,7 @@ final class AppModel: ObservableObject
     
     func setup()
     {
-        client = OpenAISwift(authToken: "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")
+        client = OpenAISwift(authToken: "API_KEY")
     }
     
     func send(text: String, completion: @escaping (String) -> Void)
