@@ -8,17 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		C7D03E2129AD2E7C00EC29AA /* OpenAI_GPT3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D03E2029AD2E7C00EC29AA /* OpenAI_GPT3App.swift */; };
-		C7D03E2329AD2E7C00EC29AA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D03E2229AD2E7C00EC29AA /* ContentView.swift */; };
 		C7D03E2529AD2E7E00EC29AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D03E2429AD2E7E00EC29AA /* Assets.xcassets */; };
 		C7D03E2829AD2E7E00EC29AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D03E2729AD2E7E00EC29AA /* Preview Assets.xcassets */; };
+		C7D03E6029AF987200EC29AA /* ModulesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D03E5F29AF987200EC29AA /* ModulesView.swift */; };
+		C7D03E6229AF989F00EC29AA /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D03E6129AF989F00EC29AA /* SettingsView.swift */; };
+		C7D03E6529AF9B8B00EC29AA /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = C7D03E6429AF9B8B00EC29AA /* OpenAISwift */; };
+		C7D03E6729AF9BAF00EC29AA /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D03E6629AF9BAF00EC29AA /* AppModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		C7D03E1D29AD2E7C00EC29AA /* OpenAI GPT3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenAI GPT3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D03E2029AD2E7C00EC29AA /* OpenAI_GPT3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI_GPT3App.swift; sourceTree = "<group>"; };
-		C7D03E2229AD2E7C00EC29AA /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		C7D03E2429AD2E7E00EC29AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7D03E2729AD2E7E00EC29AA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		C7D03E5F29AF987200EC29AA /* ModulesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModulesView.swift; sourceTree = "<group>"; };
+		C7D03E6129AF989F00EC29AA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		C7D03E6629AF9BAF00EC29AA /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +31,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7D03E6529AF9B8B00EC29AA /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,9 +58,11 @@
 			isa = PBXGroup;
 			children = (
 				C7D03E2029AD2E7C00EC29AA /* OpenAI_GPT3App.swift */,
-				C7D03E2229AD2E7C00EC29AA /* ContentView.swift */,
+				C7D03E5F29AF987200EC29AA /* ModulesView.swift */,
+				C7D03E6129AF989F00EC29AA /* SettingsView.swift */,
 				C7D03E2429AD2E7E00EC29AA /* Assets.xcassets */,
 				C7D03E2629AD2E7E00EC29AA /* Preview Content */,
+				C7D03E6629AF9BAF00EC29AA /* AppModel.swift */,
 			);
 			path = "OpenAI GPT3";
 			sourceTree = "<group>";
@@ -83,6 +91,9 @@
 			dependencies = (
 			);
 			name = "OpenAI GPT3";
+			packageProductDependencies = (
+				C7D03E6429AF9B8B00EC29AA /* OpenAISwift */,
+			);
 			productName = "OpenAI GPT3";
 			productReference = C7D03E1D29AD2E7C00EC29AA /* OpenAI GPT3.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +122,9 @@
 				Base,
 			);
 			mainGroup = C7D03E1429AD2E7B00EC29AA;
+			packageReferences = (
+				C7D03E6329AF9B8A00EC29AA /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+			);
 			productRefGroup = C7D03E1E29AD2E7C00EC29AA /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,8 +151,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7D03E2329AD2E7C00EC29AA /* ContentView.swift in Sources */,
+				C7D03E6229AF989F00EC29AA /* SettingsView.swift in Sources */,
+				C7D03E6029AF987200EC29AA /* ModulesView.swift in Sources */,
 				C7D03E2129AD2E7C00EC29AA /* OpenAI_GPT3App.swift in Sources */,
+				C7D03E6729AF9BAF00EC29AA /* AppModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -339,6 +355,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C7D03E6329AF9B8A00EC29AA /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C7D03E6429AF9B8B00EC29AA /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7D03E6329AF9B8A00EC29AA /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C7D03E1529AD2E7C00EC29AA /* Project object */;
 }

@@ -11,7 +11,31 @@ import SwiftUI
 struct OpenAI_GPT3App: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
+    }
+}
+
+struct RootView: View {
+    
+    var body: some View {
+        TabView {
+            ModulesView()
+                .tabItem {
+                    Image(systemName: "rectangle.stack.fill")
+                    Text("Moules")
+                }
+            SettingsView()
+                .tabItem {
+                    Image(systemName: "gear")
+                    Text("Settings")
+                }
+        }
+    }
+}
+
+struct RootView_Preview: PreviewProvider {
+    static var previews: some View {
+        RootView()
     }
 }
