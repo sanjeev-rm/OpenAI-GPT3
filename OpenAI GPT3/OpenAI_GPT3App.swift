@@ -18,6 +18,8 @@ struct OpenAI_GPT3App: App {
 
 struct RootView: View {
     
+    @ObservedObject private var model = AppModel()
+    
     var body: some View {
         TabView {
             ModulesView()
@@ -30,6 +32,10 @@ struct RootView: View {
                     Image(systemName: "gear")
                     Text("Settings")
                 }
+        }
+        .environmentObject(model)
+        .onAppear {
+            model.setup()
         }
     }
 }

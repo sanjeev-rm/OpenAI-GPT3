@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ModulesView: View {
+    
+    @EnvironmentObject private var model: AppModel
+    
     var body: some View {
         VStack {
             Image(systemName: "globe")
