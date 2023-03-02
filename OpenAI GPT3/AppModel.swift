@@ -12,13 +12,26 @@ import OpenAISwift
 final class AppModel: ObservableObject
 {
     @Published var isThinking: Bool = false
-    @Published var selectedModule: Modules? // An optional cause in the begining of our app we will not have a selected module so it'll be nil.S
+    @Published var selectedModule: Modules? // An optional cause in the begining of our app we will not have a selected module so it'll be nil.
+    
+    /// This is the text entered by the user.
+    @Published var newChatEntryText: String = ""
+    /// This contains the response/output from the API.
+    @Published var generatedNewChatText: String = ""
+    /// Stores wether the new chat screen is Empty i.e. is it retreiving and if the generated text is empty.
+    var isEmptyNewChatScreen: Bool {
+        return !isThinking && generatedNewChatText.isEmpty
+    }
+    /// Stores the new chat screen response received from the API.
+    var hasResultNewChatScreen: Bool {
+        return !isThinking && !generatedNewChatText.isEmpty
+    }
     
     private var client: OpenAISwift?
     
     func setup()
     {
-        client = OpenAISwift(authToken: "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")
+        client = OpenAISwift(authToken: "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")
     }
     
     func send(text: String, completion: @escaping (String) -> Void)
@@ -36,6 +49,19 @@ final class AppModel: ObservableObject
                 completion(output)
             }
         })
+    }
+    
+    /// This function sends the new text to the API.
+    /// When the output is generated the generatedNewChatText is assigned adn isThinking is set to false.
+    func makeNewChat()
+    {
+        send(text: "\(newChatEntryText)") { output in
+            DispatchQueue.main.async {
+                self.generatedNewChatText = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                // Setting this to false cause the output has been generated.
+                self.isThinking = false
+            }
+        }
     }
 }
 

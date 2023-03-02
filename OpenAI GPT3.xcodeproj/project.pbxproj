@@ -62,10 +62,10 @@
 				C7D03E2029AD2E7C00EC29AA /* OpenAI_GPT3App.swift */,
 				C7D03E5F29AF987200EC29AA /* ModulesView.swift */,
 				C7D03E6129AF989F00EC29AA /* SettingsView.swift */,
+				C7D03E6629AF9BAF00EC29AA /* AppModel.swift */,
 				C7D03E6829AFCA6300EC29AA /* Modules */,
 				C7D03E2429AD2E7E00EC29AA /* Assets.xcassets */,
 				C7D03E2629AD2E7E00EC29AA /* Preview Content */,
-				C7D03E6629AF9BAF00EC29AA /* AppModel.swift */,
 			);
 			path = "OpenAI GPT3";
 			sourceTree = "<group>";
