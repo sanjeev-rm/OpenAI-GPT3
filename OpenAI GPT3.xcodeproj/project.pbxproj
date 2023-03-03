@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C70A893B29B1767600B65FC6 /* ConceptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A893A29B1767600B65FC6 /* ConceptView.swift */; };
+		C70A893E29B1920900B65FC6 /* ResultView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A893D29B1920900B65FC6 /* ResultView.swift */; };
+		C70A894029B1A94200B65FC6 /* RelatedTopicsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70A893F29B1A94200B65FC6 /* RelatedTopicsView.swift */; };
 		C7D03E2129AD2E7C00EC29AA /* OpenAI_GPT3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D03E2029AD2E7C00EC29AA /* OpenAI_GPT3App.swift */; };
 		C7D03E2529AD2E7E00EC29AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D03E2429AD2E7E00EC29AA /* Assets.xcassets */; };
 		C7D03E2829AD2E7E00EC29AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D03E2729AD2E7E00EC29AA /* Preview Assets.xcassets */; };
@@ -18,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C70A893A29B1767600B65FC6 /* ConceptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConceptView.swift; sourceTree = "<group>"; };
+		C70A893D29B1920900B65FC6 /* ResultView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultView.swift; sourceTree = "<group>"; };
+		C70A893F29B1A94200B65FC6 /* RelatedTopicsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelatedTopicsView.swift; sourceTree = "<group>"; };
 		C7D03E1D29AD2E7C00EC29AA /* OpenAI GPT3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenAI GPT3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D03E2029AD2E7C00EC29AA /* OpenAI_GPT3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI_GPT3App.swift; sourceTree = "<group>"; };
 		C7D03E2429AD2E7E00EC29AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -40,6 +46,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C70A893C29B191EE00B65FC6 /* View Components */ = {
+			isa = PBXGroup;
+			children = (
+				C70A893D29B1920900B65FC6 /* ResultView.swift */,
+			);
+			path = "View Components";
+			sourceTree = "<group>";
+		};
 		C7D03E1429AD2E7B00EC29AA = {
 			isa = PBXGroup;
 			children = (
@@ -63,6 +77,7 @@
 				C7D03E5F29AF987200EC29AA /* ModulesView.swift */,
 				C7D03E6129AF989F00EC29AA /* SettingsView.swift */,
 				C7D03E6629AF9BAF00EC29AA /* AppModel.swift */,
+				C70A893C29B191EE00B65FC6 /* View Components */,
 				C7D03E6829AFCA6300EC29AA /* Modules */,
 				C7D03E2429AD2E7E00EC29AA /* Assets.xcassets */,
 				C7D03E2629AD2E7E00EC29AA /* Preview Content */,
@@ -82,6 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				C7D03E6929AFCA8100EC29AA /* NewChatView.swift */,
+				C70A893A29B1767600B65FC6 /* ConceptView.swift */,
+				C70A893F29B1A94200B65FC6 /* RelatedTopicsView.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -162,10 +179,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C70A894029B1A94200B65FC6 /* RelatedTopicsView.swift in Sources */,
 				C7D03E6229AF989F00EC29AA /* SettingsView.swift in Sources */,
+				C70A893B29B1767600B65FC6 /* ConceptView.swift in Sources */,
 				C7D03E6029AF987200EC29AA /* ModulesView.swift in Sources */,
 				C7D03E2129AD2E7C00EC29AA /* OpenAI_GPT3App.swift in Sources */,
 				C7D03E6A29AFCA8100EC29AA /* NewChatView.swift in Sources */,
+				C70A893E29B1920900B65FC6 /* ResultView.swift in Sources */,
 				C7D03E6729AF9BAF00EC29AA /* AppModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

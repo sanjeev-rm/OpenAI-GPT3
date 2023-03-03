@@ -1,17 +1,17 @@
 //
-//  NewChatView.swift
+//  RelatedTopicsView.swift
 //  OpenAI GPT3
 //
-//  Created by Sanjeev RM on 01/03/23.
+//  Created by Sanjeev RM on 03/03/23.
 //
 
 import SwiftUI
 
-struct NewChatView: View {
+struct RelatedTopicsView: View {
     
     @EnvironmentObject private var model: AppModel
     
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dismiss) private var dismiss
     
     @FocusState private var fieldIsFocused: Bool
     
@@ -20,20 +20,20 @@ struct NewChatView: View {
             ScrollView {
                 VStack(spacing: 32) {
                     VStack {
-                        Image(systemName: "globe")
-                            .foregroundColor(.accentColor)
+                        Image(systemName: "square.stack.3d.down.right")
                             .dynamicTypeSize(.accessibility5)
+                            .foregroundColor(.accentColor)
                         
                         HStack {
-                            TextField("Required", text: $model.newChatEntryText, axis: .vertical)
+                            TextField("Required", text: $model.relatedTopicsEntryText, axis: .vertical)
                                 .focused($fieldIsFocused)
                                 .padding(8)
                                 .background(Color(.secondarySystemFill).cornerRadius(10))
                             
-                            if model.newChatEntryText.isEmpty
+                            if model.relatedTopicsEntryText.isEmpty
                             {
                                 Button("Paste") {
-                                    model.newChatEntryText = UIPasteboard.general.string ?? ""
+                                    model.relatedTopicsEntryText = UIPasteboard.general.string ?? ""
                                 }
                             }
                         }
@@ -46,9 +46,9 @@ struct NewChatView: View {
                             .padding(.leading, 34)
                     }
                     
-                    if model.isEmptyNewChatScreen, !model.newChatEntryText.isEmpty
+                    if model.isEmptyRelatedTopicsScreen, !model.relatedTopicsEntryText.isEmpty
                     {
-                        Text("Tap 'Send' in the top right corner of your screen")
+                        Text("Tap 'generate' in the top right corner of your screen.")
                             .font(.system(size: 17))
                             .foregroundColor(.gray)
                             .multilineTextAlignment(.center)
@@ -57,21 +57,19 @@ struct NewChatView: View {
                     
                     if model.isThinking
                     {
-                        VStack {
-                            Text("Generating Response...")
-                            ProgressView().progressViewStyle(.circular)
-                        }
+                        Text("Generating response...")
+                        ProgressView().progressViewStyle(.circular)
                     }
                     
-                    if model.hasResultNewChatScreen
+                    if model.hasResultRelatedTopicsScreen
                     {
-                        ResultView(generatedText: model.generatedNewChatText)
+                        ResultView(generatedText: model.generatedRelatedTopicsText)
                     }
                 }
                 .padding(.vertical, 16)
             }
             .scrollDismissesKeyboard(.immediately)
-            .navigationTitle("New Chat")
+            .navigationTitle("Related Topics")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { screenToolBar }
         }
@@ -85,23 +83,23 @@ struct NewChatView: View {
                         dismiss()
                     }
                     
-                    if !model.generatedNewChatText.isEmpty
+                    if model.hasResultRelatedTopicsScreen
                     {
                         Button("Reset") {
-                            model.newChatEntryText = ""
-                            model.generatedNewChatText = ""
+                            model.relatedTopicsEntryText = ""
+                            model.generatedRelatedTopicsText = ""
                         }
                     }
                 }
             }
             
             ToolbarItem(placement: .navigationBarTrailing) {
-                Button("Send") {
-//                    model.makeNewChat()
-                    let stupidReplies = ["My name is Paris", "I am a human"]
-                    model.generatedNewChatText = stupidReplies.randomElement()!
+                Button("Generate") {
+//                    model.makeRelatedTopics()
+                    let unrelatedTopics = "Paris\nItaly\nGreece\nRome\nSan Francisco"
+                    model.generatedRelatedTopicsText = unrelatedTopics
                     model.isThinking = false
-                }.disabled(model.isThinking || model.newChatEntryText.isEmpty)
+                }.disabled(model.isThinking || model.relatedTopicsEntryText.isEmpty)
             }
         }
     }
