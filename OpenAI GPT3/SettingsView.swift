@@ -11,15 +11,30 @@ struct SettingsView: View {
     
     @EnvironmentObject private var model: AppModel
     
+    let displayOptions = ["Light", "Dark", "System"]
+    
     var body: some View {
-        Image(systemName: "gearshape.fill")
-            .dynamicTypeSize(.accessibility5)
-            .foregroundColor(.accentColor)
-    }
-}
+        NavigationStack {
+            Form {
+                Section("General") {
+                    Picker("Display mode", selection: $model.displayModeString) {
+                        ForEach(displayOptions, id: \.self) {
+                            Text($0)
+                        }
+                    }
+                }
+                
+                Section("Contact") {
+                    Button {
+                        EmailHelper.shared.sendEmail(subject: "OpenAI GPT3 v\(AppInfo.VERSION_NUMBER)", body: "", to: AppInfo.SUPPORT_EMAIL)
+                    } label: {
+                        Label("Email Support", systemImage: "tray.and.arrow.up")
+                    }
 
-struct SettingsView_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
+                }
+            }
+            .navigationTitle("Settings")
+        }
+        .preferredColorScheme(model.appDisplayColorScheme)
     }
 }

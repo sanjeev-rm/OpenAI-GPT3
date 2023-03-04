@@ -53,6 +53,7 @@ struct ModulesView: View {
                     AffirmationView()
                 }
             }
+            .preferredColorScheme(model.appDisplayColorScheme)
         }
     }
 }

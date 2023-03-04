@@ -17,6 +17,8 @@
 		C7B2C42E29B35D040010C167 /* ComparisonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B2C42D29B35D040010C167 /* ComparisonView.swift */; };
 		C7B2C43029B367930010C167 /* NextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B2C42F29B367930010C167 /* NextView.swift */; };
 		C7B2C43229B36B680010C167 /* AffirmationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B2C43129B36B680010C167 /* AffirmationView.swift */; };
+		C7B2C43529B37BD00010C167 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B2C43429B37BD00010C167 /* Constants.swift */; };
+		C7B2C43729B37BE00010C167 /* EmailHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7B2C43629B37BE00010C167 /* EmailHelper.swift */; };
 		C7D03E2129AD2E7C00EC29AA /* OpenAI_GPT3App.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D03E2029AD2E7C00EC29AA /* OpenAI_GPT3App.swift */; };
 		C7D03E2529AD2E7E00EC29AA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D03E2429AD2E7E00EC29AA /* Assets.xcassets */; };
 		C7D03E2829AD2E7E00EC29AA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7D03E2729AD2E7E00EC29AA /* Preview Assets.xcassets */; };
@@ -38,6 +40,8 @@
 		C7B2C42D29B35D040010C167 /* ComparisonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparisonView.swift; sourceTree = "<group>"; };
 		C7B2C42F29B367930010C167 /* NextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextView.swift; sourceTree = "<group>"; };
 		C7B2C43129B36B680010C167 /* AffirmationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AffirmationView.swift; sourceTree = "<group>"; };
+		C7B2C43429B37BD00010C167 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C7B2C43629B37BE00010C167 /* EmailHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailHelper.swift; sourceTree = "<group>"; };
 		C7D03E1D29AD2E7C00EC29AA /* OpenAI GPT3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "OpenAI GPT3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7D03E2029AD2E7C00EC29AA /* OpenAI_GPT3App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAI_GPT3App.swift; sourceTree = "<group>"; };
 		C7D03E2429AD2E7E00EC29AA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -68,6 +72,15 @@
 			path = "View Components";
 			sourceTree = "<group>";
 		};
+		C7B2C43329B37BBD0010C167 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				C7B2C43429B37BD00010C167 /* Constants.swift */,
+				C7B2C43629B37BE00010C167 /* EmailHelper.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		C7D03E1429AD2E7B00EC29AA = {
 			isa = PBXGroup;
 			children = (
@@ -87,6 +100,7 @@
 		C7D03E1F29AD2E7C00EC29AA /* OpenAI GPT3 */ = {
 			isa = PBXGroup;
 			children = (
+				C7B2C43329B37BBD0010C167 /* Utilities */,
 				C7D03E2029AD2E7C00EC29AA /* OpenAI_GPT3App.swift */,
 				C7D03E5F29AF987200EC29AA /* ModulesView.swift */,
 				C7D03E6129AF989F00EC29AA /* SettingsView.swift */,
@@ -200,6 +214,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7B2C43729B37BE00010C167 /* EmailHelper.swift in Sources */,
 				C7B2C43229B36B680010C167 /* AffirmationView.swift in Sources */,
 				C70A894029B1A94200B65FC6 /* RelatedTopicsView.swift in Sources */,
 				C7D03E6229AF989F00EC29AA /* SettingsView.swift in Sources */,
@@ -207,6 +222,7 @@
 				C7B2C42C29B353640010C167 /* SummarizedView.swift in Sources */,
 				C7B2C42A29B34C7D0010C167 /* ExpandedView.swift in Sources */,
 				C7B2C42E29B35D040010C167 /* ComparisonView.swift in Sources */,
+				C7B2C43529B37BD00010C167 /* Constants.swift in Sources */,
 				C7D03E6029AF987200EC29AA /* ModulesView.swift in Sources */,
 				C7B2C43029B367930010C167 /* NextView.swift in Sources */,
 				C7D03E2129AD2E7C00EC29AA /* OpenAI_GPT3App.swift in Sources */,

@@ -38,6 +38,8 @@ struct ConceptView: View {
                     ResultView(generatedText: model.generatedConcept, textSize: 28, showCopyButton: true, copyButtonTitle: $copyButtonTitle)
                 }
             }
+            .navigationTitle("Random Concept")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar { screenToolBar }
         }
     }
@@ -63,7 +65,7 @@ struct ConceptView: View {
                 Button("Generate") {
                     copyButtonTitle = "Copy"
 //                    model.makeConcept()
-                    let concepts = ["Gravity", "App Dev", "IOS Dev", "Gravitational Time Dialation"]
+                    let concepts = ["Gravity", "App Dev", "IOS Dev", "Gravitational Time Dilation"]
                     model.generatedConcept = concepts.randomElement()!
                     model.isThinking = false
                 }.disabled(model.isThinking)

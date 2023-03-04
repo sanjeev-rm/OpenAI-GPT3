@@ -36,6 +36,8 @@ struct AffirmationView: View {
                     ResultView(generatedText: model.generatedAffirmation, textSize: 28)
                 }
             }
+            .navigationTitle("Affirmation")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar { screenToolBar }
         }
     }

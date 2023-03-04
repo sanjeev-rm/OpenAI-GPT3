@@ -36,6 +36,8 @@ struct NextView: View {
                     ResultView(generatedText: model.generatedNext, textSize: 28)
                 }
             }
+            .navigationTitle("Next")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar { screenToolBar }
         }
     }

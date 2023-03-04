@@ -37,6 +37,7 @@ struct RootView: View {
         .onAppear {
             model.setup()
         }
+        .preferredColorScheme(model.appDisplayColorScheme)
     }
 }
 

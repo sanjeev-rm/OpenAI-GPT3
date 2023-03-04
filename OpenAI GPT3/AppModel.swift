@@ -11,6 +11,11 @@ import OpenAISwift
 // final keyword means that this calss will not be inherited.
 final class AppModel: ObservableObject
 {
+    @Published var displayModeString: String = "Light"
+    var appDisplayColorScheme: ColorScheme? {
+        return displayModeString == "System" ? nil : (displayModeString == "Dark" ? .dark : .light)
+    }
+    
     @Published var isThinking: Bool = false
     @Published var selectedModule: Modules? // An optional cause in the begining of our app we will not have a selected module so it'll be nil.
     
