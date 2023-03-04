@@ -1,25 +1,23 @@
 //
-//  ConceptView.swift
+//  AffirmationView.swift
 //  OpenAI GPT3
 //
-//  Created by Sanjeev RM on 03/03/23.
+//  Created by Sanjeev RM on 04/03/23.
 //
 
 import SwiftUI
 
-struct ConceptView: View {
+struct AffirmationView: View {
     
     @EnvironmentObject private var model: AppModel
     
     @Environment(\.dismiss) var dismiss
     
-    @State private var copyButtonTitle: String = "Copy"
-    
     var body: some View {
         NavigationStack {
             VStack(spacing: 32) {
                 
-                if model.isEmptyConceptScreen
+                if model.isEmptyAffirmationScreen
                 {
                     Text("Tap 'Generate' in the top right corner of your screen")
                         .foregroundColor(.gray)
@@ -33,9 +31,9 @@ struct ConceptView: View {
                     ProgressView().progressViewStyle(.circular)
                 }
                 
-                if model.hasResultConceptScreen
+                if model.hasResultAffirmationScreen
                 {
-                    ResultView(generatedText: model.generatedConcept, textSize: 28, showCopyButton: true, copyButtonTitle: $copyButtonTitle)
+                    ResultView(generatedText: model.generatedAffirmation, textSize: 28)
                 }
             }
             .toolbar { screenToolBar }
@@ -49,11 +47,10 @@ struct ConceptView: View {
                     Button("Cancel") {
                         dismiss()
                     }
-                    if !model.generatedConcept.isEmpty
+                    if !model.generatedAffirmation.isEmpty
                     {
                         Button("Reset") {
-                            copyButtonTitle = "Copy"
-                            model.generatedConcept = ""
+                            model.generatedAffirmation = ""
                         }
                     }
                 }
@@ -61,10 +58,9 @@ struct ConceptView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Generate") {
-                    copyButtonTitle = "Copy"
-//                    model.makeConcept()
-                    let concepts = ["Gravity", "App Dev", "IOS Dev", "Gravitational Time Dialation"]
-                    model.generatedConcept = concepts.randomElement()!
+//                    model.makeAffirmation()
+                    let affirmation = ["Eat", "Sleep", "Create", "Dance"]
+                    model.generatedAffirmation = affirmation.randomElement()!
                     model.isThinking = false
                 }.disabled(model.isThinking)
             }

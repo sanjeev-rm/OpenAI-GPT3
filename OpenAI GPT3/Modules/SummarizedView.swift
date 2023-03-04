@@ -1,17 +1,17 @@
 //
-//  RelatedTopicsView.swift
+//  SummarizedView.swift
 //  OpenAI GPT3
 //
-//  Created by Sanjeev RM on 03/03/23.
+//  Created by Sanjeev RM on 04/03/23.
 //
 
 import SwiftUI
 
-struct RelatedTopicsView: View {
+struct SummarizedView: View {
     
     @EnvironmentObject private var model: AppModel
     
-    @Environment(\.dismiss) private var dismiss
+    @Environment(\.dismiss) var dismiss
     
     @FocusState private var fieldIsFocused: Bool
     
@@ -20,35 +20,35 @@ struct RelatedTopicsView: View {
             ScrollView {
                 VStack(spacing: 32) {
                     VStack {
-                        Image(systemName: "square.stack.3d.down.right")
-                            .dynamicTypeSize(.accessibility5)
+                        Image(systemName: "arrow.down.and.line.horizontal.and.arrow.up")
                             .foregroundColor(.accentColor)
+                            .dynamicTypeSize(.accessibility5)
                         
                         HStack {
-                            TextField("Required", text: $model.relatedTopicsEntryText, axis: .vertical)
+                            TextField("Required", text: $model.summarizeEntryText, axis: .vertical)
                                 .focused($fieldIsFocused)
                                 .padding(8)
                                 .background(Color(.secondarySystemFill).cornerRadius(10))
                             
-                            if model.relatedTopicsEntryText.isEmpty
+                            if model.summarizeEntryText.isEmpty
                             {
                                 Button("Paste") {
-                                    model.relatedTopicsEntryText = UIPasteboard.general.string ?? ""
+                                    model.summarizeEntryText = UIPasteboard.general.string ?? ""
                                 }
                             }
                         }
                         .padding([.leading, .trailing], 24)
                         
-                        Text("Provide topic or keyword")
+                        Text("Provide text")
                             .font(.system(size: 13))
                             .foregroundColor(.gray)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.leading, 34)
                     }
                     
-                    if model.isEmptyRelatedTopicsScreen, !model.relatedTopicsEntryText.isEmpty
+                    if model.isEmptySummarizedScreen, !model.summarizeEntryText.isEmpty
                     {
-                        Text("Tap 'generate' in the top right corner of your screen.")
+                        Text("Tap 'Generate' in the top right corner of your screen")
                             .font(.system(size: 17))
                             .foregroundColor(.gray)
                             .multilineTextAlignment(.center)
@@ -57,19 +57,21 @@ struct RelatedTopicsView: View {
                     
                     if model.isThinking
                     {
-                        Text("Generating response...")
-                        ProgressView().progressViewStyle(.circular)
+                        VStack {
+                            Text("Generating Summary...")
+                            ProgressView().progressViewStyle(.circular)
+                        }
                     }
                     
-                    if model.hasResultRelatedTopicsScreen
+                    if model.hasResultSummarizedScreen
                     {
-                        ResultView(generatedText: model.generatedRelatedTopicsText)
+                        ResultView(generatedText: model.generatedSummarizedText)
                     }
                 }
                 .padding(.vertical, 16)
             }
             .scrollDismissesKeyboard(.immediately)
-            .navigationTitle("Related Topics")
+            .navigationTitle("Summarize Text")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar { screenToolBar }
         }
@@ -83,11 +85,11 @@ struct RelatedTopicsView: View {
                         dismiss()
                     }
                     
-                    if model.hasResultRelatedTopicsScreen
+                    if !model.generatedSummarizedText.isEmpty
                     {
                         Button("Reset") {
-                            model.relatedTopicsEntryText = ""
-                            model.generatedRelatedTopicsText = ""
+                            model.summarizeEntryText = ""
+                            model.generatedSummarizedText = ""
                         }
                     }
                 }
@@ -95,11 +97,11 @@ struct RelatedTopicsView: View {
             
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("Generate") {
-//                    model.makeRelatedTopics()
-                    let unrelatedTopics = "Paris\nItaly\nGreece\nRome\nSan Francisco"
-                    model.generatedRelatedTopicsText = unrelatedTopics
+//                    model.makeSummarized()
+                    let summaries = ["Space is an incredibly exciting thing that many people find fascinating.", "The force of gravity is a concept that can teach us a lot about life."]
+                    model.generatedSummarizedText = summaries.randomElement()!
                     model.isThinking = false
-                }.disabled(model.isThinking || model.relatedTopicsEntryText.isEmpty)
+                }.disabled(model.isThinking || model.summarizeEntryText.isEmpty)
             }
         }
     }

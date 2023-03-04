@@ -35,6 +35,47 @@ final class AppModel: ObservableObject
     var isEmptyRelatedTopicsScreen: Bool { !isThinking && generatedRelatedTopicsText.isEmpty }
     var hasResultRelatedTopicsScreen: Bool { !isThinking && !generatedRelatedTopicsText.isEmpty }
     
+    // MARK: The variables for the Definition module view.
+    @Published var definitionEntryText: String = ""
+    @Published var generatedDefinitionText: String = ""
+    var isEmptyDefinitionScreen: Bool { !isThinking && generatedDefinitionText.isEmpty }
+    var hasResultDefinitionScreen: Bool { !isThinking && !generatedDefinitionText.isEmpty }
+    
+    // MARK: The variables for the Article module view.
+    @Published var articleEntryText: String = ""
+    @Published var generatedArticleText: String = ""
+    var isEmptyArticleScreen: Bool { !isThinking && generatedArticleText.isEmpty }
+    var hasResultArticleScreen: Bool { !isThinking && !generatedArticleText.isEmpty }
+    
+    // MARK: The variables for the Expanded module view.
+    @Published var expandedEntryText: String = ""
+    @Published var generatedExpandedText: String = ""
+    var isEmptyExpandedScreen: Bool { !isThinking && generatedExpandedText.isEmpty }
+    var hasResultExpandedScreen: Bool { !isThinking && !generatedExpandedText.isEmpty }
+    
+    // MARK: The variables for the Summarized module view.
+    @Published var summarizeEntryText: String = ""
+    @Published var generatedSummarizedText: String = ""
+    var isEmptySummarizedScreen: Bool { !isThinking && generatedSummarizedText.isEmpty }
+    var hasResultSummarizedScreen: Bool { !isThinking && !generatedSummarizedText.isEmpty }
+    
+    // MARK: The variables for the Comparison module view.
+    @Published var comparisonEntryText1: String = ""
+    @Published var comparisonEntryText2: String = ""
+    @Published var generatedComparisonText: String = ""
+    var isEmptyComparisonScreen: Bool { !isThinking && generatedComparisonText.isEmpty }
+    var hasResultComparisonScreen: Bool { !isThinking && !generatedComparisonText.isEmpty }
+    
+    // MARK: The variables for the Next module view.
+    @Published var generatedNext: String = ""
+    var isEmptyNextScreen: Bool { !isThinking && generatedNext.isEmpty }
+    var hasResultNextScreen: Bool { !isThinking && !generatedNext.isEmpty }
+    
+    // MARK: The variables for the Affirmation module view.
+    @Published var generatedAffirmation: String = ""
+    var isEmptyAffirmationScreen: Bool { !isThinking && generatedAffirmation.isEmpty }
+    var hasResultAffirmationScreen: Bool { !isThinking && !generatedAffirmation.isEmpty }
+    
     private var client: OpenAISwift?
     
     func setup()
@@ -88,11 +129,104 @@ final class AppModel: ObservableObject
     }
     
     // MARK: Function for the Related Topics module view.
+    /// Function for the Related topics module view.
+    /// Generates the related topics and sets the values in the view.
     func makeRelatedTopics()
     {
-        send(text: "Generate 5 topics that are closely related to \(self.generatedRelatedTopicsText). Simply provide the related topics seperated by new line.") { output in
+        send(text: "Generate 5 topics that are closely related to \(generatedRelatedTopicsText). Simply provide the related topics seperated by new line.") { output in
             DispatchQueue.main.async {
                 self.generatedRelatedTopicsText = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
+    
+    // MARK: Function for the Definition module view.
+    /// Function for the Definition module view.
+    /// Generates the Definition and sets the values in the view.
+    func makeDefinition()
+    {
+        send(text: "Provide the defenition of \(definitionEntryText).") { output in
+            DispatchQueue.main.async {
+                self.generatedDefinitionText = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
+    
+    // MARK: Function for the Article module view.
+    /// Function for the Article module view.
+    /// Generates the Article and sets the values in the view.
+    func makeArticle()
+    {
+        send(text: "Generate an in-depth, grounded in reality, 1-paragraph wikipedia article for a reader who does not understand the topic of \(articleEntryText). Simply provide the generated article.") { output in
+            DispatchQueue.main.async {
+                self.generatedArticleText = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
+    
+    // MARK: Function for the Expanded module view.
+    /// Function for the Expanded module view.
+    /// Generates the Expanded and sets the values in the view.
+    func makeExpanded()
+    {
+        send(text: "Expand on the following text: \"\(expandedEntryText)\".") { output in
+            DispatchQueue.main.async {
+                self.generatedExpandedText = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
+    
+    // MARK: Function for the Summarized module view.
+    /// Function for the Summarized module view.
+    /// Generates the Summarized and sets the values in the view.
+    func makeSummarized()
+    {
+        send(text: "Summarize the following text, readable by an 8th grader: \"\(summarizeEntryText)\".") { output in
+            DispatchQueue.main.async {
+                self.generatedSummarizedText = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
+    
+    // MARK: Function for the Comparison module view.
+    /// Function for the Comparison module view.
+    /// Generates the Comparison and sets the values in the view.
+    func makeComparison()
+    {
+        send(text: "Provide a list of differences between: \"\(comparisonEntryText1)\" and \"\(comparisonEntryText2)\".") { output in
+            DispatchQueue.main.async {
+                self.generatedComparisonText = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
+    
+    // MARK: Function for the Next module view.
+    /// Function for the Comparison module view.
+    /// Generates the Comparison and sets the values in the view.
+    func makeNext()
+    {
+        send(text: "Provide a random but important, single thing to think about on the topic of daily living in the form of a direction for me to follow right now. Be specific.") { output in
+            DispatchQueue.main.async {
+                self.generatedNext = output.trimmingCharacters(in: .whitespacesAndNewlines)
+                self.isThinking = false
+            }
+        }
+    }
+    
+    // MARK: Function for the Affirmation module view.
+    /// Function for the Affirmation module view.
+    /// Generates the Affirmation and sets the values in the view.
+    func makeAffirmation()
+    {
+        send(text: "Generate an affirmation I can tell myself that will subtly fill me with life and smiles and that is not too confusing. Provide the affirmation without quotes.") { output in
+            DispatchQueue.main.async {
+                self.generatedAffirmation = output.trimmingCharacters(in: .whitespacesAndNewlines)
                 self.isThinking = false
             }
         }
@@ -104,6 +238,13 @@ enum Modules: CaseIterable, Identifiable
     case newChat
     case randomConcept
     case relatedTopics
+    case definition
+    case article
+    case expanded
+    case summarized
+    case comparison
+    case next
+    case affirmation
     
     var id: String {
         return title
@@ -116,6 +257,20 @@ enum Modules: CaseIterable, Identifiable
             return "Random Concept"
         case .relatedTopics:
             return "Related Topics"
+        case .definition:
+            return "Definition"
+        case .article:
+            return "Article"
+        case .expanded:
+            return "Expand Text"
+        case .summarized:
+            return "Summarize Text"
+        case .comparison:
+            return "Compare"
+        case .next:
+            return "Next"
+        case .affirmation:
+            return "Affirmation"
         }
     }
     
@@ -127,6 +282,20 @@ enum Modules: CaseIterable, Identifiable
             return "lightbulb"
         case .relatedTopics:
             return "square.stack.3d.up"
+        case .definition:
+            return "exclamationmark.circle"
+        case .article:
+            return "book"
+        case .expanded:
+            return "rectangle.expand.vertical"
+        case .summarized:
+            return "rectangle.compress.vertical"
+        case .comparison:
+            return "arrow.up.arrow.down"
+        case .next:
+            return "arrowshape.right"
+        case .affirmation:
+            return "checkmark.seal"
         }
     }
 }

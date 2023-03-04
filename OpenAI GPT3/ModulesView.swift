@@ -37,6 +37,20 @@ struct ModulesView: View {
                     ConceptView()
                 case .relatedTopics:
                     RelatedTopicsView()
+                case .definition:
+                    DefinitionView()
+                case .article:
+                    ArticleView()
+                case .expanded:
+                    ExpandedView()
+                case .summarized:
+                    SummarizedView()
+                case .comparison:
+                    ComparisonView()
+                case .next:
+                    NextView()
+                case .affirmation:
+                    AffirmationView()
                 }
             }
         }
